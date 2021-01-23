@@ -24,12 +24,14 @@ with open('test.json') as file,open('result.csv','w') as csvfile:
     for p in read['data']:
         para = p['paragraphs']
         length = len(para) 
-        tokens = []
-        pos = []
+        
         #sentence = " "
-        sentence_num += 1
+        
         print("length",length)
         for i in range(0,length-1):
+            tokens = []
+            pos = []
+            sentence_num += 1
             #處理文章內容
             context.append(para[i]['context']) #取出文章內容
             sentence = para[i]['context']
@@ -37,7 +39,7 @@ with open('test.json') as file,open('result.csv','w') as csvfile:
             for token in doc :
                 tokens.append(token.text) #斷詞
                 pos.append(token.tag_) #POS
-            for j in range(0,len(tokens)-1):
+            for j in range(0,len(tokens)):
                 if j == 0:
                     string = "Sentence: "+str(sentence_num)
                     writer.writerow({'Sentence #':string, 'Word': tokens[j], 'POS':pos[j]})
@@ -47,7 +49,6 @@ with open('test.json') as file,open('result.csv','w') as csvfile:
             qas_length = len(qas)
             for j in range(0,qas_length-1):
                 answers.append(qas[j]['answers'][0]['text']) #取出答案
-            print("i",i)
 
 print("sentence_num:",sentence_num)
 #print(context)
