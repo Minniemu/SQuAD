@@ -1,5 +1,5 @@
 # SQuAD
->* Result :
+* Result :
 
 > 1.Example 1 :
 
