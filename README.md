@@ -7,8 +7,8 @@
 
 > Result :
 
-O       [CLS]
-O       Architecturally
+>O       [CLS]
+>O       Architecturally
 O       ,
 O       the
 O       school
